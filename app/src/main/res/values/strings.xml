@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Prime</string>
+<<<<<<< HEAD
+=======
+    <string name="prime">Prime</string>
+>>>>>>> c42eba722d0e53f915d60cad70444b38e9c435d4
 </resources>
