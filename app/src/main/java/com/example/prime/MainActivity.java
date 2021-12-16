@@ -24,13 +24,7 @@ public class MainActivity extends AppCompatActivity {
         create = findViewById(R.id.create);
         setContentView(R.layout.activity_main);
         FirebaseAuth mAuth;
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this ,Sign_Up.class));
-                finish();
-            }
-        });
+
 
     }
 
