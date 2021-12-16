@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        create = findViewById(R.id.create);
         setContentView(R.layout.activity_main);
         FirebaseAuth mAuth;
 
