@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Prime">
         <activity
+            android:name=".VerifyPhoneNo"
+            android:exported="false" />
+        <activity
+            android:name=".Sign_Up"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

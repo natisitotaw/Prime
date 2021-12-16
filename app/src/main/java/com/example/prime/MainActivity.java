@@ -2,6 +2,7 @@ package com.example.prime;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,7 +22,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Verify(View view) {
 
+    public void Signin(View view) {
+        Intent intent = new Intent(getApplicationContext(), VerifyPhoneNo.class);
+        startActivity(intent);
+
+    }
+
+    public void SignUp(View view) {
+        Intent intent = new Intent(getApplicationContext(), Sign_Up.class);
+        startActivity(intent);
     }
 }
