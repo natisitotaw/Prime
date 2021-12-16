@@ -2,7 +2,9 @@ package com.example.prime;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class ChooseVerification extends AppCompatActivity {
 
@@ -10,5 +12,15 @@ public class ChooseVerification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_verification);
+    }
+
+    public void ViaEmail(View view) {
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void ViaPhone(View view) {
+        Intent intent = new Intent(getApplicationContext(), Sign_Up.class);
+        startActivity(intent);
     }
 }

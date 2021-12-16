@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Signin(View view) {
-        Intent intent = new Intent(getApplicationContext(), VerifyPhoneNo.class);
-        startActivity(intent);
+        //Intent intent = new Intent(getApplicationContext(), VerifyPhoneNo.class);
+        //startActivity(intent);
 
     }
 
     public void SignUp(View view) {
-        Intent intent = new Intent(getApplicationContext(), Sign_Up.class);
+        Intent intent = new Intent(getApplicationContext(), ChooseVerification.class);
         startActivity(intent);
     }
 }

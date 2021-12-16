@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ChooseVerification">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="275dp"
+        android:layout_height="53dp"
+        android:text="Sign Up Via E-mail"
+        android:onClick="ViaEmail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="265dp"
+        android:layout_height="52dp"
+        android:text="Sign Up via Phone"
+        android:onClick="ViaPhone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567" />
 </androidx.constraintlayout.widget.ConstraintLayout>
