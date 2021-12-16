@@ -4,26 +4,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
+
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
->>>>>>> c42eba722d0e53f915d60cad70444b38e9c435d4
+
 
 public class MainActivity extends AppCompatActivity {
+    private TextView create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        create = findViewById(R.id.create);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
-=======
         FirebaseAuth mAuth;
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this ,Sign_Up.class));
+                finish();
+            }
+        });
 
     }
 
@@ -32,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), VerifyPhoneNo.class);
         startActivity(intent);
 
->>>>>>> c42eba722d0e53f915d60cad70444b38e9c435d4
     }
 
     public void SignUp(View view) {

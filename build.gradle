@@ -13,10 +13,8 @@ buildscript {
     }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c42eba722d0e53f915d60cad70444b38e9c435d4
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
