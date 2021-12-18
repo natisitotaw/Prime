@@ -36,6 +36,7 @@ public class VerifyPhoneNo extends AppCompatActivity {
     Button verify_button;
     EditText PhoneNoOfUser;
     ProgressBar progressBar;
+    private String mVerificationId;
     FirebaseAuth mAuth;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -108,7 +109,11 @@ public class VerifyPhoneNo extends AppCompatActivity {
                             Log.d(TAG, "SignWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
                         }else{
+                            //Sign in failed, display a message and update The UI
                             Log.w(TAG, "signWithCredential:Failure", task.getException());
+                            if(task.getException() instanceof FirebaseAuthInvalidCredentialsException){
+                                Toast.makeText(VerifyPhoneNo.this, "The Verification code is Invalid", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });

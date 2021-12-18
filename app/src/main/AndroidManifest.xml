@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Prime">
         <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
             android:name=".ChooseVerification"
             android:exported="false" />
         <activity

@@ -22,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button register;
+
     private FirebaseAuth mAuth;
 
     @Override
