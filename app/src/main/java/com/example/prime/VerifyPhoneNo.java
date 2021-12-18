@@ -19,8 +19,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
@@ -54,6 +56,14 @@ public class VerifyPhoneNo extends AppCompatActivity {
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
+
+            Log.w(TAG, "onVerificationFailed");
+
+            if(e instanceof FirebaseAuthInvalidCredentialsException){
+                // Invalid request
+            }else if( e instanceof FirebaseTooManyRequestsException){
+                // The sms quota for the project has been exceeded
+            }
             Toast.makeText(VerifyPhoneNo.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.GONE);
         }
@@ -69,6 +79,7 @@ public class VerifyPhoneNo extends AppCompatActivity {
         String phoneNo = getIntent().getStringExtra("PhoneNo");
         sendVerificationCodeToUser(phoneNo);
     }
+    // Send Verification Sms code to the users phone
     private void sendVerificationCodeToUser(String phoneNo) {
         // [START start_phone-auth]
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
