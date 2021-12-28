@@ -30,15 +30,17 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class VerifyPhoneNo extends AppCompatActivity {
     private static final String TAG = "PhoneAuthActivity";
     String VerificationCodeBySystem;
     Button verify_button;
     EditText PhoneNoOfUser;
     ProgressBar progressBar;
+
     private String mVerificationId;
     FirebaseAuth mAuth;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
@@ -54,7 +56,6 @@ public class VerifyPhoneNo extends AppCompatActivity {
             Log.d(TAG, "onVerificationCompleted:" + phoneAuthCredential);
 
         }
-
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
@@ -108,6 +109,8 @@ public class VerifyPhoneNo extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Log.d(TAG, "SignWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
+                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                            startActivity(intent);
                         }else{
                             //Sign in failed, display a message and update The UI
                             Log.w(TAG, "signWithCredential:Failure", task.getException());
@@ -118,7 +121,6 @@ public class VerifyPhoneNo extends AppCompatActivity {
                     }
                 });
     }
-
     public void Boom(View view) {
         String code = PhoneNoOfUser.getText().toString().trim();
         verify_Code(code);
