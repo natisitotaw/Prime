@@ -1,5 +1,9 @@
 package com.example.prime;
 
+/*
+ * Created by NatiSt on 1/3/2022.
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
