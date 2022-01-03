@@ -38,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void SignIn(View view) {
-        Toast.makeText(MainActivity.this, "bhbh", Toast.LENGTH_SHORT).show();
-        if(!isConnected(this)){
+        //Toast.makeText(MainActivity.this, "bhbh", Toast.LENGTH_SHORT).show();
+        if(!isConnected(MainActivity.this)){
             showCustomDialog();
         }
-
     }
 
 
