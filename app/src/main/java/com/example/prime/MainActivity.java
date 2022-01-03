@@ -35,53 +35,16 @@ import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity {
-    private TextView create;
+    TextView create;
     Button signin;
-    private EditText password,phoneno;
+    EditText password,phoneno;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseAuth mAuth;
-        signin = (Button) findViewById(R.id.varify);
-        phoneno = (EditText) findViewById(R.id.userphoneno);
-        password = (EditText) findViewById(R.id.passwordentered);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
 
-        signin.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
-                mDialog.setMessage("Please Wait...");
-                mDialog.show();
-                table_user.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.child(phoneno.getText().toString()).exists()){
-                            mDialog.dismiss();
-                            User user = snapshot.child(phoneno.getText().toString()).getValue(User.class);
-                            if(user.getPassword().equals(password.getText().toString())){
-                                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), HomePage.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            mDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-        });
     }
 
     public void SignIn(View view) {
