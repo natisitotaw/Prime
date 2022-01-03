@@ -63,22 +63,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage("Please connect to the internet to proceed further")
                 .setCancelable(false)
-                .setPositiveButton("connect", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "You must Connect To internet", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                .setPositiveButton("connect", (dialog, which) -> startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)))
+                .setNegativeButton("Cancel", (dialog, which) -> {
+                    Toast.makeText(MainActivity.this, "You must Connect To internet", Toast.LENGTH_SHORT).show();
+                    finish();
                 });
         builder.create();
     }
-
 
     public void SignUp(View view) {
         Intent intent = new Intent(getApplicationContext(), ChooseVerification.class);
