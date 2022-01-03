@@ -1,5 +1,8 @@
 package com.example.prime;
 
+/*
+  Created by NatiSt on 1/3/2022.
+ */
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
@@ -30,9 +33,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-/*
-*
-* */
+
 public class VerifyPhoneNo extends AppCompatActivity {
     private static final String TAG = "PhoneAuthActivity";
     String VerificationCodeBySystem;
@@ -101,6 +102,7 @@ public class VerifyPhoneNo extends AppCompatActivity {
         signInUserByCredentials(credential);
     }
 
+//
     private void signInUserByCredentials(PhoneAuthCredential credential) {
 
         mAuth.signInWithCredential(credential)
