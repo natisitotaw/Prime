@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FirebaseAuth mAuth;
 
-
     }
 
 
     public void SignIn(View view) {
         //Toast.makeText(MainActivity.this, "bhbh", Toast.LENGTH_SHORT).show();
         if(!isConnected(MainActivity.this)){
+            //Toast.makeText(MainActivity.this, "Connect to internet", Toast.LENGTH_SHORT).show();
             showCustomDialog();
         }
     }
