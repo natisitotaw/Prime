@@ -30,7 +30,9 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-
+/*
+*
+* */
 public class VerifyPhoneNo extends AppCompatActivity {
     private static final String TAG = "PhoneAuthActivity";
     String VerificationCodeBySystem;

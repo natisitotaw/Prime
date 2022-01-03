@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".Splash">
 
-    <include
-        android:id="@+id/toolbarHomePage"
-        layout="@layout/toolbar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
