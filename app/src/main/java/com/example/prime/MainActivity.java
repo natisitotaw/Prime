@@ -65,14 +65,16 @@ public class MainActivity extends AppCompatActivity {
                             User user = snapshot.child(phoneno.getText().toString()).getValue(User.class);
                             if(user.getPassword().equals(password.getText().toString())){
                                 Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                                startActivity(intent);
                             }else{
                                 Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                             }
                         }else{
+                            mDialog.dismiss();
                             Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
