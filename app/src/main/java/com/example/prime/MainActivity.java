@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void SignIn(View view) {
         //Toast.makeText(MainActivity.this, "bhbh", Toast.LENGTH_SHORT).show();
+        //showCustomDialog();
         if(!isConnected(MainActivity.this)){
-            //Toast.makeText(MainActivity.this, "Connect to internet", Toast.LENGTH_SHORT).show();
-            showCustomDialog();
+            Toast.makeText(MainActivity.this, "Connect to internet", Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-
+        AlertDialog dialog = builder.create();
     }
 
 
