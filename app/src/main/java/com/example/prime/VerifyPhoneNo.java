@@ -115,6 +115,7 @@ public class VerifyPhoneNo extends AppCompatActivity {
                             FirebaseUser user = task.getResult().getUser();
                             Intent intent = new Intent(getApplicationContext(), HomePage.class);
                             startActivity(intent);
+                            finish();
                         }else{
                             //Sign in failed, display a message and update The UI
                             Log.w(TAG, "signWithCredential:Failure", task.getException());

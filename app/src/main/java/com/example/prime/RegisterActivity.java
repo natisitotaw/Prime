@@ -64,7 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                             }else{
                                 Toast.makeText(RegisterActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     });
