@@ -49,49 +49,48 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordentered);
         phoneno = findViewById(R.id.userphoneno);
 
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference table_user = database.getReference("User");
         signin.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
-                mDialog.setMessage("Please Wait...");
-                mDialog.show();
-                table_user.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.child(phoneno.getText().toString()).exists()){
-                            mDialog.dismiss();
-                            Userdb user = snapshot.child(phoneno.getText().toString()).getValue(Userdb.class);
-                            if(user.getPassword().equals(password.getText().toString())){
-                                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), HomePage.class);
-                                startActivity(intent);
+                if(!isConnected(MainActivity.this)){
+                    Toast.makeText(MainActivity.this, "Connect to internet", Toast.LENGTH_SHORT).show();
+                    showCustomDialog();
+                }else{ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
+                    mDialog.setMessage("Please Wait...");
+                    mDialog.show();
+                    table_user.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.child(phoneno.getText().toString()).exists()){
+                                mDialog.dismiss();
+                                Userdb user = snapshot.child(phoneno.getText().toString()).getValue(Userdb.class);
+                                if(user.getPassword().equals(password.getText().toString())){
+                                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                                }
                             }else{
-                                Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                                mDialog.dismiss();
+                                Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
                             }
-                        }else{
-                            mDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });}
+
             }
         });
     }
 
-    /*public void SignIn(View view) {
 
-        if(!isConnected(MainActivity.this)){
-            Toast.makeText(MainActivity.this, "Connect to internet", Toast.LENGTH_SHORT).show();
-            showCustomDialog();
-        }
-    }*/
     //Check internet
     private boolean isConnected(MainActivity mainActivity) {
         ConnectivityManager connectivityManager = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
