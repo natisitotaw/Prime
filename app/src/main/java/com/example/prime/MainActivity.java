@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), HomePage.class);
                                 startActivity(intent);
+                                finish();
                             }else{
                                 Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                             }
