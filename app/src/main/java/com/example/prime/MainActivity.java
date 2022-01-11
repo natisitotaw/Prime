@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prime.Database.User;
+import com.example.prime.Database.Userdb;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         phoneno = findViewById(R.id.userphoneno);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference table_user = database.getReference();
+        DatabaseReference table_user = database.getReference("User");
         signin.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.child(phoneno.getText().toString()).exists()){
                             mDialog.dismiss();
-                            User user = snapshot.child(phoneno.getText().toString()).getValue(User.class);
+                            Userdb user = snapshot.child(phoneno.getText().toString()).getValue(Userdb.class);
                             if(user.getPassword().equals(password.getText().toString())){
                                 Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), HomePage.class);
