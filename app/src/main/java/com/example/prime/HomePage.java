@@ -28,17 +28,12 @@ public class HomePage extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(names,images, this);
         gridView.setAdapter(customAdapter);
 
-
-
-
-
-
     }
     public class CustomAdapter extends BaseAdapter {
-        private String[] imageNames;
-        private int[] imagePhoto;
-        private Context context;
-        private LayoutInflater layoutInflater;
+        private final String[] imageNames;
+        private final int[] imagePhoto;
+        private final Context context;
+        private final LayoutInflater layoutInflater;
 
         public CustomAdapter(String[] imageNames, int[] imagePhoto, Context context) {
             this.imageNames = imageNames;
