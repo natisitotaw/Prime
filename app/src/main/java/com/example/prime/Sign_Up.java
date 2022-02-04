@@ -21,6 +21,7 @@ public class Sign_Up extends AppCompatActivity {
     EditText PhoneNo, Password, Username;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    final int x = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
